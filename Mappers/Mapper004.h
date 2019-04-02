@@ -6,7 +6,7 @@
 #ifndef Mapper004_H_DEFINED
 #define Mapper004_H_DEFINED
 
-#include "Casette.h"
+#include "NES/Casette.h"
 
 /* MMC3 */
 class Mapper004: public Casette {

@@ -6,7 +6,7 @@
 #ifndef Mapper011_H_DEFINED
 #define Mapper011_H_DEFINED
 
-#include "Casette.h"
+#include "NES/Casette.h"
 
 /* Color Dreams */
 class Mapper011: public Casette {

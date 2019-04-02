@@ -21,7 +21,7 @@
 #define Casette_H_DEFINED
 
 #include <stdio.h>
-#include "ROMfile.h"
+#include "NES/ROMfile.h"
 
 class CasetteProtocol {
 public:

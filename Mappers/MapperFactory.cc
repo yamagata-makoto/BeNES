@@ -17,8 +17,8 @@
    along with this program; if not, write to the Free Software
    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 */
-#include "MapperFactory.h"
-#include "Mappers.h"
+#include "Mappers/MapperFactory.h"
+#include "Mappers/Mappers.h"
 
 CasetteProtocol* MapperFactory::Create(ROMfile* romfile)
 {

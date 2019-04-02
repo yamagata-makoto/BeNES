@@ -19,9 +19,9 @@
    along with this program; if not, write to the Free Software
    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 */
-#include "BNJoypad.h"
-#include "Joypad.h"
-#include "BNDefs.h"
+#include "BeOS/BNJoypad.h"
+#include "NES/Joypad.h"
+#include "BeOS/BNDefs.h"
 #include <interface/InterfaceDefs.h>
 #include <stdio.h>
 #include <unistd.h>

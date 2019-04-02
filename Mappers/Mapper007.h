@@ -6,7 +6,7 @@
 #ifndef Mapper007_H_DEFINED
 #define Mapper007_H_DEFINED
 
-#include "Casette.h"
+#include "NES/Casette.h"
 
 /* AOROM */
 class Mapper007: public Casette {

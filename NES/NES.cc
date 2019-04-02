@@ -18,15 +18,15 @@
    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 */
 #include <stdio.h>
-#include "NES.h"
-#include "ROM.h"
-#include "CPU.h"
-#include "RAM.h"
-#include "PPU.h"
-#include "APU.h"
-#include "VRAM.h"
-#include "WRAM.h"
-#include "Joypad.h"
+#include "NES/NES.h"
+#include "NES/ROM.h"
+#include "NES/CPU.h"
+#include "NES/RAM.h"
+#include "NES/PPU.h"
+#include "NES/APU.h"
+#include "NES/VRAM.h"
+#include "NES/WRAM.h"
+#include "NES/Joypad.h"
 
 #define SCREEN_W     (256)
 #define SCREEN_H     (240)

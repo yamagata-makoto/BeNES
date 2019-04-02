@@ -22,7 +22,7 @@
 
 #include <device/Joystick.h>
 #include <kernel/OS.h>
-#include "Joypad.h"
+#include "NES/Joypad.h"
 
 class BNGrip {
 public:

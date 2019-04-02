@@ -21,7 +21,7 @@
 #define ROMFile_H_DEFINED
 
 #include <stdio.h>
-#include "Defs.h"
+#include "NES/Defs.h"
 
 #define NES_TRAINER_SIZE (0x200)
 #define NES_SAVERAM_SIZE (0x2000)

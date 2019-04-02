@@ -6,7 +6,7 @@
 #ifndef Mapper002_H_DEFINED
 #define Mapper002_H_DEFINED
 
-#include "Casette.h"
+#include "NES/Casette.h"
 
 /* UNROM */
 class Mapper002: public Casette {

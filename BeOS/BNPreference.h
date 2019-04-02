@@ -2,7 +2,7 @@
 #define BNPreference_H_DEFINED
 
 #include <string.h>
-#include "BNDefs.h"
+#include "BeOS/BNDefs.h"
 
 class BNPanel;
 class BNApplication;

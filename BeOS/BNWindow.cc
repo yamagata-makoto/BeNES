@@ -26,14 +26,14 @@
 #include <stdio.h>
 #include <memory.h>
 
-#include "BNApplication.h"
-#include "BNWindow.h"
-#include "ColorPalette.h"
-#include "MapperFactory.h"
-#include "NES.h"
-#include "BNJoypad.h"
-#include "PaletteIndex.h"
-#include "BNPreference.h"
+#include "BeOS/BNApplication.h"
+#include "BeOS/BNWindow.h"
+#include "BeOS/ColorPalette.h"
+#include "Mappers/MapperFactory.h"
+#include "NES/NES.h"
+#include "BeOS/BNJoypad.h"
+#include "NES/PaletteIndex.h"
+#include "BeOS/BNPreference.h"
 
 #define X (100)
 #define Y (100)

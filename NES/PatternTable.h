@@ -20,7 +20,7 @@
 #ifndef PetternTable_H_DEFINED
 #define PetternTable_H_DEFINED
 
-#include "Defs.h"
+#include "NES/Defs.h"
 
 #ifdef __cplusplus
 extern "C" {

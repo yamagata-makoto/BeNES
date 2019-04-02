@@ -25,13 +25,13 @@
 #include <stdio.h>
 #include <memory.h>
 
-#include "BNScreen.h"
-#include "ColorPalette.h"
-#include "MapperFactory.h"
-#include "NES.h"
-#include "BNJoypad.h"
-#include "BNPreference.h"
-#include "PaletteIndex.h"
+#include "BeOS/BNScreen.h"
+#include "BeOS/ColorPalette.h"
+#include "Mappers/MapperFactory.h"
+#include "NES/NES.h"
+#include "BeOS/BNJoypad.h"
+#include "BeOS/BNPreference.h"
+#include "NES/PaletteIndex.h"
 
 static status_t err;
 

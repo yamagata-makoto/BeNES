@@ -6,7 +6,7 @@
 #ifndef Mapper000_H_DEFINED
 #define Mapper000_H_DEFINED
 
-#include "Casette.h"
+#include "NES/Casette.h"
 
 /* NONE */
 

@@ -3,9 +3,9 @@
 	
 	(c)makoto 2000
 */
-#include "Mapper007.h"
-#include "ROM.h"
-#include "VRAM.h"
+#include "Mappers/Mapper007.h"
+#include "NES/ROM.h"
+#include "NES/VRAM.h"
 
 void Mapper007::write(unsigned address, unsigned char data)
 {

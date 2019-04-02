@@ -6,8 +6,8 @@
 #ifndef Mapper009_H_DEFINED
 #define Mapper009_H_DEFINED
 
-#include "Casette.h"
-#include "PPU.h"
+#include "NES/Casette.h"
+#include "NES/PPU.h"
 
 /* MMC2 */
 class Mapper009: public Casette,

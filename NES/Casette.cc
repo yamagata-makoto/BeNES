@@ -21,11 +21,11 @@
 #include <string.h>
 #include <memory.h>
 #include <stdlib.h>
-#include "Casette.h"
-#include "ROM.h"
-#include "WRAM.h"
-#include "VRAM.h"
-#include "PatternTable.h"
+#include "NES/Casette.h"
+#include "NES/ROM.h"
+#include "NES/WRAM.h"
+#include "NES/VRAM.h"
+#include "NES/PatternTable.h"
 
 Casette::Casette()
 {

@@ -3,9 +3,9 @@
 	
 	(c)makoto 2000
 */
-#include "Mapper002.h"
-#include "PatternTable.h"
-#include "ROM.h"
+#include "Mappers/Mapper002.h"
+#include "NES/PatternTable.h"
+#include "NES/ROM.h"
 
 static unsigned CHRROM_UNIT = 0x2000;
 static unsigned PRGROM_UNIT = 0x4000;

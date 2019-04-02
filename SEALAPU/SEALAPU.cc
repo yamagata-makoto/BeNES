@@ -17,8 +17,8 @@
    along with this program; if not, write to the Free Software
    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 */
-#include "SEALAPU.h"
-#include "NesAPU.h"
+#include "SEALAPU/SEALAPU.h"
+#include "SEALAPU/NesAPU.h"
 
 static NesAPU* apu = NULL;
 

@@ -21,8 +21,8 @@
 #include <string.h>
 #include <memory.h>
 #include <stdlib.h>
-#include "Defs.h"
-#include "ROMfile.h"
+#include "NES/Defs.h"
+#include "NES/ROMfile.h"
 
 typedef struct tagHeader {
 	unsigned char id[4];

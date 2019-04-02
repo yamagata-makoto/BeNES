@@ -23,7 +23,7 @@
 #ifndef NESAPU_H_DEFINED
 #define NESAPU_H_DEFINED
 
-#include "NesSound.h"
+#include "SEALAPU/NesSound.h"
 
 class NesAPU {
 	NesSound mSound;

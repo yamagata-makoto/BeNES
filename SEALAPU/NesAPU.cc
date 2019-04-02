@@ -20,7 +20,7 @@
 //
 // Audio Processor Unit (APU)
 // 
-#include "NesAPU.h"
+#include "SEALAPU/NesAPU.h"
 
 const int VOL_FADE = 3;
 const int VOL_MAX = 0x0f * VOL_FADE;

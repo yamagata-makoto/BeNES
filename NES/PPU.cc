@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include <memory.h>
 #include <string.h>
-#include "PPU.h"
-#include "VRAM.h"
-#include "PatternTable.h"
-#include "PaletteIndex.h"
+#include "NES/PPU.h"
+#include "NES/VRAM.h"
+#include "NES/PatternTable.h"
+#include "NES/PaletteIndex.h"
 
 
 #define DRAW_BEG_LINE (8)

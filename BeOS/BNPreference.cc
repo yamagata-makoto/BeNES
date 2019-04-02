@@ -2,7 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <storage/Directory.h>
-#include "BNPreference.h"
+#include "BeOS/BNPreference.h"
 
 BNPreference BNPreference::instance;
 

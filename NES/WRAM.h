@@ -24,7 +24,7 @@
 extern "C" {
 #endif
 
-#include "Defs.h"
+#include "NES/Defs.h"
 
 typedef struct {
 	void (*clear)();

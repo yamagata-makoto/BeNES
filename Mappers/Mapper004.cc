@@ -3,13 +3,13 @@
 	
 	(c)makoto 2000
 */
-#include "Mapper004.h"
-#include "PatternTable.h"
-#include "ROM.h"
-#include "NES.h"
-#include "CPU.h"
-#include "VRAM.h"
-#include "PPU.h"
+#include "Mappers/Mapper004.h"
+#include "NES/PatternTable.h"
+#include "NES/ROM.h"
+#include "NES/NES.h"
+#include "NES/CPU.h"
+#include "NES/VRAM.h"
+#include "NES/PPU.h"
 
 static unsigned PRGROM_UNIT = 0x2000;
 static unsigned CHRROM_UNIT = 0x400;

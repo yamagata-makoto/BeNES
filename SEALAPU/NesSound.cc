@@ -86,13 +86,13 @@ inline void destroySound(NesSoundVoice& sound)
 inline void createNoise(unsigned short *buf, const int bits, int size)
 {
     static int m=0x0011;
-    int i, xor;
+    int i, xor_;
 
     for( i=0; i<size>>1; i++ ){
-        xor = m & 1;
+        xor_ = m & 1;
         m >>= 1;
-        xor ^= m & 1;
-        m |= xor<<(bits-1);
+        xor_ ^= m & 1;
+        m |= xor_<<(bits-1);
         if( m & (1<<(bits-1)) )  /* if MSB = 1 */
             buf[i] = (short)(-m);
         else

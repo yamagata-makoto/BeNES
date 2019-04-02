@@ -4,9 +4,9 @@
 	
 	(c)makoto 2000
 */
-#include "Mapper011.h"
-#include "PatternTable.h"
-#include "ROM.h"
+#include "Mappers/Mapper011.h"
+#include "NES/PatternTable.h"
+#include "NES/ROM.h"
 
 void Mapper011::init()
 {

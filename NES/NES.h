@@ -20,9 +20,9 @@
 #ifndef NES_H_DEFINED
 #define NES_H_DEFINED
 
-#include "Casette.h"
-#include "Defs.h"
-#include "UpdateListener.h"
+#include "NES/Casette.h"
+#include "NES/Defs.h"
+#include "NES/UpdateListener.h"
 
 class NES {
 	static NES instance;

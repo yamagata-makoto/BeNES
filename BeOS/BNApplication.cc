@@ -25,8 +25,8 @@
 #include <storage/Path.h>
 #include <memory>
 
-#include "BNApplication.h"
-#include "BNPreference.h"
+#include "BeOS/BNApplication.h"
+#include "BeOS/BNPreference.h"
 
 inline void ShowMessage(char* msg) {
 	BAlert* alert = new BAlert(NULL, msg, "OK");

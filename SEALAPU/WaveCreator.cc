@@ -1,4 +1,5 @@
-#include "WaveCreator.h"
+#include "SEALAPU/WaveCreator.h"
+#include <cstring>
 #include <memory>
 
 const WORD WAVE_FORMAT = 
@@ -7,7 +8,7 @@ const WORD WAVE_FORMAT =
 LPAUDIOWAVE
 WaveCreator::Audio16BitMono(WORD rate, LPBYTE data, DWORD len)
 {
-	std::auto_ptr<AUDIOWAVE> wave(new AUDIOWAVE);
+    std::auto_ptr<AUDIOWAVE> wave(new AUDIOWAVE);
 	wave->wFormat = WAVE_FORMAT;
 	wave->nSampleRate = rate;
 	wave->dwLength = len;
@@ -17,7 +18,7 @@ WaveCreator::Audio16BitMono(WORD rate, LPBYTE data, DWORD len)
 	if (ACreateAudioData(wave.get()) != AUDIO_ERROR_NONE) {
 		return NULL;
 	}
-	memcpy(wave->lpData, data, len);
+    std::memcpy(wave->lpData, data, len);
 	AWriteAudioData(wave.get(), 0L, len);
 
 	return wave.release();

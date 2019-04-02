@@ -20,7 +20,7 @@
 #ifndef PPU_H_DEFINED
 #define PPU_H_DEFINED
 
-#include "Defs.h"
+#include "NES/Defs.h"
 
 /* PPU protocol */
 class PPUdelegate {

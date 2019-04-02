@@ -20,7 +20,7 @@
 #ifndef MapperFactory_H_DEFINED
 #define MapperFactory_H_DEFINED
 
-#include "Casette.h"
+#include "NES/Casette.h"
 
 class MapperFactory
 {

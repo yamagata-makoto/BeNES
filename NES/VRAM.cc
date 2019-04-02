@@ -19,9 +19,9 @@
 */
 #include <stdio.h>
 #include <string.h>
-#include "Defs.h"
-#include "VRAM.h"
-#include "PatternTable.h"
+#include "NES/Defs.h"
+#include "NES/VRAM.h"
+#include "NES/PatternTable.h"
 
 static void VRAMreset();
 static void VRAMsetMirrorType(int mirrorType);

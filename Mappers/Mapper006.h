@@ -6,8 +6,8 @@
 #ifndef Mapper006_H_DEFINED
 #define Mapper006_H_DEFINED
 
-#include "Casette.h"
-#include "CPU.h"
+#include "NES/Casette.h"
+#include "NES/CPU.h"
 
 /* FFE F4xxx */
 class Mapper006: public Casette,

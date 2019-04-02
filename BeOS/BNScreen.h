@@ -24,7 +24,7 @@
 #include <interface/Bitmap.h>
 #include <interface/View.h>
 #include <game/WindowScreen.h>
-#include "UpdateListener.h"
+#include "NES/UpdateListener.h"
 
 class BNScreen: public BWindowScreen,
                 public UpdateListener

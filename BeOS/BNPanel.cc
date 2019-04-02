@@ -28,9 +28,9 @@
 #include <stdio.h>
 #include <memory.h>
 
-#include "BNPanel.h"
-#include "BNJoypad.h"
-#include "BNPreference.h"
+#include "BeOS/BNPanel.h"
+#include "BeOS/BNJoypad.h"
+#include "BeOS/BNPreference.h"
 
 /* message */
 #define BNM_EMULATE    'emul'

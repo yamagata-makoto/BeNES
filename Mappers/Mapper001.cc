@@ -6,10 +6,10 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include "Mapper001.h"
-#include "PatternTable.h"
-#include "ROM.h"
-#include "VRAM.h"
+#include "Mappers/Mapper001.h"
+#include "NES/PatternTable.h"
+#include "NES/ROM.h"
+#include "NES/VRAM.h"
 
 #define CART_OTHER (0)
 #define CART_512K  (1)

@@ -23,8 +23,8 @@
 #include <interface/Window.h>
 #include <interface/Bitmap.h>
 #include <interface/View.h>
-#include "Defs.h"
-#include "UpdateListener.h"
+#include "NES/Defs.h"
+#include "NES/UpdateListener.h"
 
 class BNWindow: public BWindow,
                 public UpdateListener

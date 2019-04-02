@@ -5,10 +5,10 @@
 */
 /* not works yet. */
 
-#include "Mapper006.h"
-#include "PatternTable.h"
-#include "ROM.h"
-#include "VRAM.h"
+#include "Mappers/Mapper006.h"
+#include "NES/PatternTable.h"
+#include "NES/ROM.h"
+#include "NES/VRAM.h"
 
 void Mapper006::init()
 {

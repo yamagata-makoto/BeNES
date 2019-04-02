@@ -20,7 +20,7 @@
 #ifndef APU_H_DEFINED
 #define APU_H_DEFINED
 
-#include "Defs.h"
+#include "NES/Defs.h"
 
 #ifdef __cplusplus
 extern "C" {

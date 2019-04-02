@@ -1,7 +1,7 @@
 #ifndef UpdateListener_H_DEFINED
 #define UpdateListener_H_DEFINED
 
-#include "Defs.h"
+#include "NES/Defs.h"
 
 class UpdateListener {
 public:

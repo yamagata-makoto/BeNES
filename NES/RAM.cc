@@ -21,7 +21,7 @@
 #include <memory.h>
 #include <stdlib.h>
 #include <string.h>
-#include "RAM.h"
+#include "NES/RAM.h"
 
 RAMprotocol RAMprotocol::instance;
 

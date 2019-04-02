@@ -22,11 +22,11 @@
 
 #include <app/Application.h>
 
-#include "BNPanel.h"
-#include "BNScreen.h"
-#include "BNWindow.h"
-#include "NES.h"
-#include "MapperFactory.h"
+#include "BeOS/BNPanel.h"
+#include "BeOS/BNScreen.h"
+#include "BeOS/BNWindow.h"
+#include "NES/NES.h"
+#include "Mappers/MapperFactory.h"
 
 #define BNMSG_BEGIN_EMULATE 'bege'
 #define BNMSG_END_EMULATE 'ende'

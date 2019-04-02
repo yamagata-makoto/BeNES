@@ -1,17 +1,17 @@
 #ifndef MAPPERS_H_DEFINED
 #define MAPPERS_H_DEFINED
 
-#include "Mapper000.h"
-#include "Mapper001.h"
-#include "Mapper002.h"
-#include "Mapper003.h"
-#include "Mapper004.h"
-#include "Mapper006.h"
-#include "Mapper007.h"
-#include "Mapper009.h"
-#include "Mapper011.h"
-#include "Mapper015.h"
-#include "Mapper034.h"
+#include "Mappers/Mapper000.h"
+#include "Mappers/Mapper001.h"
+#include "Mappers/Mapper002.h"
+#include "Mappers/Mapper003.h"
+#include "Mappers/Mapper004.h"
+#include "Mappers/Mapper006.h"
+#include "Mappers/Mapper007.h"
+#include "Mappers/Mapper009.h"
+#include "Mappers/Mapper011.h"
+#include "Mappers/Mapper015.h"
+#include "Mappers/Mapper034.h"
 
 #endif
 

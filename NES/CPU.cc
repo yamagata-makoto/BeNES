@@ -21,13 +21,13 @@
 #include <memory.h>
 #include <string.h>
 #include <stdlib.h>
-#include "Joypad.h"
-#include "M6502.h"
-#include "CPU.h"
-#include "NES.h"
-#include "PPU.h"
-#include "APU.h"
-#include "SEALAPU.h"
+#include "M6502/M6502.h"
+#include "NES/Joypad.h"
+#include "NES/CPU.h"
+#include "NES/NES.h"
+#include "NES/PPU.h"
+#include "NES/APU.h"
+#include "SEALAPU/SEALAPU.h"
 
 M6502 core;
 CPUprotocol CPUprotocol::instance;
