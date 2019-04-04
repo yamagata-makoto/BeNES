@@ -1,7 +1,5 @@
 # Famicom Emulator for BeOS/Haiku
-since (C) 2000 makoto
 ---
-
 Howto build
 ---
 for Haiku
@@ -13,6 +11,7 @@ $ cd ../..
 $ make
 ```
 
+---
 BeNES keys
 ---
 Up/Down/Left/Right: arrows
@@ -21,3 +20,5 @@ B button: X, left shift, ctrl
 START: enter
 SELECT: space
 
+---
+(C) 2000 makoto
