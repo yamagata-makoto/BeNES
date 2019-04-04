@@ -31,5 +31,5 @@ BeNES: $(OBJS)
 	$(CC) $(CFLAGS) -o $@ -c $<
 
 clean:
-	rm $(OBJS) 
+	rm $(OBJS) ./BeNES
 
