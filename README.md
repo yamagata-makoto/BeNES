@@ -1,17 +1,17 @@
 # Famicom Emulator for BeOS/Haiku
----
+
 Howto build
 ---
 for Haiku
 ```
-$ git https://github.com/yamagata-makoto/SEAL.git
+$ cd BeNES
+$ git clone https://github.com/yamagata-makoto/SEAL.git
 $ cd SEAL/src
 $ make haiku
 $ cd ../..
 $ make
 ```
 
----
 BeNES keys
 ---
 Up/Down/Left/Right: arrows
