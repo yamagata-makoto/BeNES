@@ -5,10 +5,6 @@ Howto build
 for Haiku
 ```
 $ cd BeNES
-$ git clone https://github.com/yamagata-makoto/SEAL.git
-$ cd SEAL/src
-$ make haiku
-$ cd ../..
 $ make
 ```
 
