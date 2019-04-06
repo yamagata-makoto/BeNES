@@ -29,11 +29,11 @@
 #include "BeOS/BNApplication.h"
 #include "BeOS/BNWindow.h"
 #include "BeOS/ColorPalette.h"
-#include "Mappers/MapperFactory.h"
-#include "NES/NES.h"
 #include "BeOS/BNJoypad.h"
-#include "NES/PaletteIndex.h"
 #include "BeOS/BNPreference.h"
+#include "NES/MapperFactory.h"
+#include "NES/PaletteIndex.h"
+#include "NES/NES.h"
 
 #define X (100)
 #define Y (100)

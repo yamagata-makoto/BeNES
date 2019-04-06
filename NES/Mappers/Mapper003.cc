@@ -3,7 +3,7 @@
 	
 	(c)makoto 2000
 */
-#include "Mappers/Mapper003.h"
+#include "Mapper003.h"
 #include "NES/PatternTable.h"
 
 static unsigned CHRROM_UNIT = 0x2000;

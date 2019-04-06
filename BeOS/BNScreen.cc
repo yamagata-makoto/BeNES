@@ -27,11 +27,11 @@
 
 #include "BeOS/BNScreen.h"
 #include "BeOS/ColorPalette.h"
-#include "Mappers/MapperFactory.h"
-#include "NES/NES.h"
 #include "BeOS/BNJoypad.h"
 #include "BeOS/BNPreference.h"
+#include "NES/NES.h"
 #include "NES/PaletteIndex.h"
+#include "NES/MapperFactory.h"
 
 static status_t err;
 

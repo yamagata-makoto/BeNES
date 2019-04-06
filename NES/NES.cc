@@ -17,7 +17,9 @@
    along with this program; if not, write to the Free Software
    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 */
+#include <OS.h>
 #include <stdio.h>
+#include <time.h>
 #include "NES/NES.h"
 #include "NES/ROM.h"
 #include "NES/CPU.h"
@@ -82,11 +84,13 @@ void NES::reset()
 
 void NES::run()
 {
+	clock_t start, wait;
 	running = YES;
 
 	this->reset();
 
 	scanline = 0;
+	start = clock();
 	while (running == YES) {
 		executeCPU1scanline(scanline);
 		PPU()->drawScanline(scanline, screen);
@@ -103,6 +107,8 @@ void NES::run()
 			PPU()->resetVBLANK();
 			scanline = 0;
 			CPU()->run(80);
+			snooze(16666L - (clock() - start));
+			start = clock();
 		}
 	}
 	mapper->uninit();

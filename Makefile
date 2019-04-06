@@ -2,10 +2,10 @@ ARCH = Haiku
 CC = gcc
 
 NES_SRC = $(wildcard ./NES/*.cc)
-CPU_SRC = ./M6502/M6502.c
-APU_SRC = $(wildcard ./SEALAPU/*.cc)
+CPU_SRC = ./NES/M6502/M6502.c
+APU_SRC = $(wildcard ./NES/APU/SEAL/*.cc)
 GUI_SRC = $(wildcard ./BeOS/*.cc)
-MAPPER_SRC = $(wildcard ./Mappers/*.cc)
+MAPPER_SRC = $(wildcard ./NES/Mappers/*.cc)
 
 NES_OBJ = $(addsuffix .o, $(basename $(NES_SRC)))
 CPU_OBJ = $(addsuffix .o, $(basename $(CPU_SRC)))
@@ -30,12 +30,15 @@ $(LIB_DIR)/$(SEAL_LIB):
 	@if [ ! -e $(SEAL_DIR) ]; then git clone http://github.com/yamagata-makoto/SEAL.git; fi
 	cd $(SEAL_DIR)/src; make `echo $(ARCH) | tr A-Z a-z`
 
-BeNES: $(OBJS)
+BeNES: $(OBJS) $(LIB_DIR)/$(SEAL_LIB)
 	$(CC) -o BeNES $(OBJS) $(LFLAGS) $(LIBS)
 
 .cc.o: 
 	$(CC) $(CFLAGS) -o $@ -c $<
 
 clean:
+	rm -rf $(OBJS) ./BeNES
+
+reset:
 	rm -rf $(SEAL_DIR) $(OBJS) ./BeNES
 

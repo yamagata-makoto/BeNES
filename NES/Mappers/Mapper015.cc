@@ -5,7 +5,7 @@
 */
 /* not works yet. */
 
-#include "Mappers/Mapper015.h"
+#include "Mapper015.h"
 #include "NES/ROM.h"
 #include "NES/VRAM.h"
 #include "NES/PatternTable.h"

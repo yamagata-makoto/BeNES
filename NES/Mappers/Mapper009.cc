@@ -6,7 +6,7 @@
 */
 /* buggy */
 
-#include "Mappers/Mapper009.h"
+#include "Mapper009.h"
 #include "NES/ROM.h"
 #include "NES/VRAM.h"
 #include "NES/PPU.h"

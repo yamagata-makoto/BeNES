@@ -3,7 +3,7 @@
 	
 	(c)makoto 2000
 */
-#include "Mappers/Mapper002.h"
+#include "Mapper002.h"
 #include "NES/PatternTable.h"
 #include "NES/ROM.h"
 

@@ -27,7 +27,6 @@
 #include "NES/NES.h"
 #include "NES/PPU.h"
 #include "NES/APU.h"
-#include "SEALAPU/SEALAPU.h"
 
 M6502 core;
 CPUprotocol CPUprotocol::instance;
@@ -61,10 +60,10 @@ void WRAMwrite(unsigned address, unsigned char data);
 
 //const int CPU_FRAME_CYCLES = (29870);
 //const int CPU_UNIT_CYCLES = (CPU_FRAME_CYCLES / 4);
-//const int CPU_FRAME_CYCLES = (113*258);
-//const int CPU_UNIT_CYCLES = (CPU_FRAME_CYCLES / 4);
-const int CPU_UNIT_CYCLES = 7457;
-const int CPU_FRAME_CYCLES = CPU_UNIT_CYCLES * 4;
+const int CPU_FRAME_CYCLES = (113*258);
+const int CPU_UNIT_CYCLES = (CPU_FRAME_CYCLES / 4);
+//const int CPU_UNIT_CYCLES = 7457;
+//const int CPU_FRAME_CYCLES = CPU_UNIT_CYCLES * 4;
 
 static int frameClock = 0;
 static int ticks = 0;

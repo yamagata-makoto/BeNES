@@ -26,7 +26,7 @@
 #include "BeOS/BNScreen.h"
 #include "BeOS/BNWindow.h"
 #include "NES/NES.h"
-#include "Mappers/MapperFactory.h"
+#include "NES/MapperFactory.h"
 
 #define BNMSG_BEGIN_EMULATE 'bege'
 #define BNMSG_END_EMULATE 'ende'

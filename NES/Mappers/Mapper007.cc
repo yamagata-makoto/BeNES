@@ -3,7 +3,7 @@
 	
 	(c)makoto 2000
 */
-#include "Mappers/Mapper007.h"
+#include "Mapper007.h"
 #include "NES/ROM.h"
 #include "NES/VRAM.h"
 
