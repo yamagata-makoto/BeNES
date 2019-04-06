@@ -107,7 +107,7 @@ void NES::run()
 			PPU()->resetVBLANK();
 			scanline = 0;
 			CPU()->run(80);
-			snooze(16666L - (clock() - start));
+			snooze(20000L - (clock() - start));
 			start = clock();
 		}
 	}
