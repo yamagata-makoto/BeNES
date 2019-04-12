@@ -1,11 +1,12 @@
-# Famicom Emulator for BeOS/Haiku
+# BeNES
+# Famicom(Nintendo Entertaiment System) Emulator
 
 Howto build
 ---
-for Haiku
+for Haiku32 or BeOS
 ```
 $ cd BeNES
-$ make
+$ make -f makefiles/Makefile.BeOS
 ```
 
 BeNES keys
