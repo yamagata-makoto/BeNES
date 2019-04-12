@@ -1,8 +1,8 @@
 CC = gcc
-ARCH = Linux64
-GUI_FRAMEWORK = SDL
+ARCH = Haiku
+GUI_FRAMEWORK = BeOS
 APU_DRIVER = SEAL
-ADD_CFLAGS = -m32
+ADD_CFLAGS = 
 
 NES_SRC = $(wildcard ./NES/*.cc)
 CPU_SRC = ./NES/M6502/M6502.c
