@@ -1,11 +1,13 @@
 CC = gcc
-ARCH = Haiku
+ARCH = Linux64
+GUI_FRAMEWORK = SDL
 APU_DRIVER = SEAL
+ADD_CFLAGS = -m32
 
 NES_SRC = $(wildcard ./NES/*.cc)
 CPU_SRC = ./NES/M6502/M6502.c
 APU_SRC = $(wildcard ./NES/APU/$(APU_DRIVER)/*.cc)
-GUI_SRC = $(wildcard ./BeOS/*.cc)
+GUI_SRC = $(wildcard ./$(GUI_FRAMEWORK)/*.cc)
 MAPPER_SRC = $(wildcard ./NES/Mappers/*.cc)
 
 NES_OBJ = $(addsuffix .o, $(basename $(NES_SRC)))
@@ -23,6 +25,7 @@ SEAL_LIB = libaudio.a
 LIB_DIR = $(SEAL_DIR)/lib/$(ARCH)
 
 CFLAGS = -O3 -I. -I$(SEAL_DIR)/include
+CFLAGS += $(ADD_CFLAGS)
 LFLAGS = -L$(LIB_DIR) 
 LIBS = -lbe -ldevice -lgame -ltracker -laudio -lmidi -lmedia
 

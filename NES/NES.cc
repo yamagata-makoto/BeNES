@@ -17,7 +17,6 @@
    along with this program; if not, write to the Free Software
    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 */
-#include <OS.h>
 #include <stdio.h>
 #include <time.h>
 #include "NES/NES.h"
@@ -29,6 +28,13 @@
 #include "NES/VRAM.h"
 #include "NES/WRAM.h"
 #include "NES/Joypad.h"
+
+#if defined(__BEOS__) || defined(__HAIKU__)
+#include <OS.h>
+#else
+#include <unistd.h>
+#define snooze usleep
+#endif
 
 #define SCREEN_W     (256)
 #define SCREEN_H     (240)
