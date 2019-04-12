@@ -1,5 +1,7 @@
-# BeNES
 # Famicom(Nintendo Entertaiment System) Emulator
+
+BeNES
+======
 
 Howto build
 ---
