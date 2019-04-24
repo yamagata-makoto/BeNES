@@ -1,4 +1,4 @@
-### Famicom(Nintendo Entertaiment System) Emulator
+### Famicom(Nintendo Entertainment System) Emulator
 BeNES
 ======
 
