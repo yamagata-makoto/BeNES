@@ -20,6 +20,7 @@ SRCS = $(NES_SRC) $(CPU_SRC) $(APU_SRC) $(GUI_SRC) $(MAPPER_SRC)
 OBJS = $(NES_OBJ) $(CPU_OBJ) $(APU_OBJ) $(GUI_OBJ) $(MAPPER_OBJ)
 
 CONTRIB_DIR = ./contrib
+SEAL_GIT = http://github.com/yamagata-makoto/SEAL.git
 SEAL_DIR = $(CONTRIB_DIR)/SEAL
 SEAL_LIB = libaudio.a
 LIB_DIR = $(SEAL_DIR)/lib/$(ARCH)
@@ -33,7 +34,7 @@ all: $(LIB_DIR)/$(SEAL_LIB) BeNES
 
 $(LIB_DIR)/$(SEAL_LIB):
 	@mkdir -p $(CONTRIB_DIR)
-	@if [ ! -e $(SEAL_DIR) ]; then cd $(CONTRIB_DIR); git clone http://github.com/yamagata-makoto/SEAL.git; fi
+	@if [ ! -e $(SEAL_DIR) ]; then cd $(CONTRIB_DIR); git clone $(SEAL_GIT); fi
 	cd $(SEAL_DIR)/src; make `echo $(ARCH) | tr A-Z a-z`
 
 BeNES: $(OBJS) $(LIB_DIR)/$(SEAL_LIB)
