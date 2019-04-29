@@ -1,6 +1,6 @@
 /*
     BeNES - Nintendo Entertaiment System Emulator for BeOS
-    
+
     * (C) 2000 by makoto yamagata
 
     This program is free software; you can redistribute it and/or modify
@@ -20,14 +20,16 @@
 #ifndef PaletteIndex_H_DEFINED
 #define PaletteIndex_H_DEFINED
 
-class PaletteIndexProtocol {
-	static PaletteIndexProtocol instance;
-	PaletteIndexProtocol() { reset(); }
+class PaletteIndexProtocol
+{
+  static PaletteIndexProtocol instance;
+  PaletteIndexProtocol() { reset(); }
+
 public:
-	static PaletteIndexProtocol* Instance() { return &instance; }
-	void reset();
-	void resetWith(unsigned char* index);
-	unsigned char toIndex(unsigned char c);
+  static PaletteIndexProtocol* Instance() { return &instance; }
+  void reset();
+  void resetWith(unsigned char* index);
+  unsigned char toIndex(unsigned char c);
 };
 
 PaletteIndexProtocol* PaletteIndex();

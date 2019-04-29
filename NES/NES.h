@@ -1,6 +1,6 @@
 /*
     BeNES - Nintendo Entertaiment System Emulator for BeOS
-    
+
     * (C) 2000 by makoto yamagata
 
     This program is free software; you can redistribute it and/or modify
@@ -24,22 +24,29 @@
 #include "NES/Defs.h"
 #include "NES/UpdateListener.h"
 
-class NES {
-	static NES instance;
-	BOOL running;
-	unsigned scanline;
+class NES
+{
+  static NES instance;
+  BOOL running;
+  unsigned scanline;
+
 private:
-	NES(): running(NO), scanline(0) { ; }
+  NES()
+    : running(NO)
+    , scanline(0)
+  {
+    ;
+  }
+
 public:
-	static NES& Instance();
-	void insertCasette(CasetteProtocol* obj);
-	void connect(UpdateListener* obj);
-	void reset();
-	void run();
-	void stop();
-	void setScreen(NESscreen* obj);
-	bool isRunning() { return running; }
+  static NES& Instance();
+  void insertCasette(CasetteProtocol* obj);
+  void connect(UpdateListener* obj);
+  void reset();
+  void run();
+  void stop();
+  void setScreen(NESscreen* obj);
+  bool isRunning() { return running; }
 };
 
 #endif
-

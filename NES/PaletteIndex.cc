@@ -1,6 +1,6 @@
 /*
     BeNES - Nintendo Entertaiment System Emulator for BeOS
-    
+
     * (C) 2000 by makoto yamagata
 
     This program is free software; you can redistribute it and/or modify
@@ -23,26 +23,30 @@ PaletteIndexProtocol PaletteIndexProtocol::instance;
 
 unsigned char index[64];
 
-void PaletteIndexProtocol::reset()
+void
+PaletteIndexProtocol::reset()
 {
-	for (int i=0; i<64; i++) {
-		index[i] = i;
-	}
+  for (int i = 0; i < 64; i++) {
+    index[i] = i;
+  }
 }
 
-void PaletteIndexProtocol::resetWith(unsigned char* aIndex)
+void
+PaletteIndexProtocol::resetWith(unsigned char* aIndex)
 {
-	for (int i=0; i<64; i++) {
-		index[i] = aIndex[i];
-	}
+  for (int i = 0; i < 64; i++) {
+    index[i] = aIndex[i];
+  }
 }
 
-unsigned char PaletteIndexProtocol::toIndex(unsigned char data)
+unsigned char
+PaletteIndexProtocol::toIndex(unsigned char data)
 {
-	return index[data];
+  return index[data];
 }
 
-PaletteIndexProtocol* PaletteIndex()
+PaletteIndexProtocol*
+PaletteIndex()
 {
-	return PaletteIndexProtocol::Instance();
+  return PaletteIndexProtocol::Instance();
 }

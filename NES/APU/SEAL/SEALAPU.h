@@ -2,7 +2,8 @@
 #define SEALAPU_H_DEFINED
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 void SEALAPUreset();

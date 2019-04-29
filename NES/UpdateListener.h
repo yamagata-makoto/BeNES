@@ -3,9 +3,10 @@
 
 #include "NES/Defs.h"
 
-class UpdateListener {
+class UpdateListener
+{
 public:
-	virtual void updateScreen() = 0;
+  virtual void updateScreen() = 0;
 };
 
 #endif

@@ -1,6 +1,6 @@
 /*
     BeNES - Nintendo Entertaiment System Emulator for BeOS
-    
+
     * (C) 2000 by makoto yamagata
 
     This program is free software; you can redistribute it and/or modify
@@ -17,11 +17,11 @@
    along with this program; if not, write to the Free Software
    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 */
-#include <stdio.h>
+#include "NES/RAM.h"
 #include <memory.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "NES/RAM.h"
 
 RAMprotocol RAMprotocol::instance;
 
@@ -31,25 +31,29 @@ unsigned char* ram = memory;
 unsigned char RAMread(unsigned address);
 void RAMwrite(unsigned address, unsigned char data);
 
-RAMprotocol* RAM()
+RAMprotocol*
+RAM()
 {
-	return RAMprotocol::Instance();
+  return RAMprotocol::Instance();
 }
 
-void RAMprotocol::clear()
+void
+RAMprotocol::clear()
 {
-	memset(memory, 0, sizeof(memory));	
+  memset(memory, 0, sizeof(memory));
 }
 
-unsigned char RAMread(unsigned address)
+unsigned char
+RAMread(unsigned address)
 {
-	return memory[address&0x7ff];
+  return memory[address & 0x7ff];
 }
 
-void RAMwrite(unsigned address, unsigned char data)
+void
+RAMwrite(unsigned address, unsigned char data)
 {
-	memory[(address&0x7ff)^0x0000] =
-	memory[(address&0x7ff)^0x0800] =
-	memory[(address&0x7ff)^0x1000] =
-	memory[(address&0x7ff)^0x1800] = data;
+  memory[(address & 0x7ff) ^ 0x0000] = 
+  memory[(address & 0x7ff) ^ 0x0800] =
+  memory[(address & 0x7ff) ^ 0x1000] = 
+  memory[(address & 0x7ff) ^ 0x1800] = data;
 }

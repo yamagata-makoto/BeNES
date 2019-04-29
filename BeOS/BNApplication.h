@@ -1,6 +1,6 @@
 /*
     BeNES - Nintendo Entertaiment System Emulator for BeOS
-    
+
     * (C) 2000 by makoto yamagata
 
     This program is free software; you can redistribute it and/or modify
@@ -25,29 +25,30 @@
 #include "BeOS/BNPanel.h"
 #include "BeOS/BNScreen.h"
 #include "BeOS/BNWindow.h"
-#include "NES/NES.h"
 #include "NES/MapperFactory.h"
+#include "NES/NES.h"
 
 #define BNMSG_BEGIN_EMULATE 'bege'
 #define BNMSG_END_EMULATE 'ende'
 
-class BNApplication: public BApplication {
-	BNPanel* panel;	
-	BNScreen* screen;
-	BNWindow* window;
-	BWindow*  current;
-	CasetteProtocol* casette;
+class BNApplication : public BApplication
+{
+  BNPanel* panel;
+  BNScreen* screen;
+  BNWindow* window;
+  BWindow* current;
+  CasetteProtocol* casette;
+
 public:
-	BNApplication();
-	~BNApplication();
-	void MessageReceived(BMessage* msg);
-	void RefsReceived(BMessage* msg);
-	bool QuitRequested();
-	void ReadyToRun();
+  BNApplication();
+  ~BNApplication();
+  void MessageReceived(BMessage* msg);
+  void RefsReceived(BMessage* msg);
+  bool QuitRequested();
+  void ReadyToRun();
+
 private:
-	void saveDirectory(BEntry& entry);
+  void saveDirectory(BEntry& entry);
 };
 
 #endif
-
-

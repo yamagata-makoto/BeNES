@@ -3,9 +3,10 @@
 
 #include "audio.h"
 
-class WaveCreator {
+class WaveCreator
+{
 public:
-	static LPAUDIOWAVE Audio16BitMono(WORD rate, LPBYTE data, DWORD len);    
+  static LPAUDIOWAVE Audio16BitMono(WORD rate, LPBYTE data, DWORD len);
 };
 
 #endif

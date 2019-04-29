@@ -1,6 +1,6 @@
 /*
     BeNES - Nintendo Entertaiment System Emulator for BeOS
-    
+
     * (C) 2000 by makoto yamagata
 
     This program is free software; you can redistribute it and/or modify
@@ -20,42 +20,43 @@
 #ifndef ROMFile_H_DEFINED
 #define ROMFile_H_DEFINED
 
-#include <stdio.h>
 #include "NES/Defs.h"
+#include <stdio.h>
 
 #define NES_TRAINER_SIZE (0x200)
 #define NES_SAVERAM_SIZE (0x2000)
 #define NES_PRGBANK_SIZE (0x4000)
 #define NES_CHRBANK_SIZE (0x2000)
 
-typedef struct {
-	unsigned char* image;
-	unsigned       size;
-	unsigned       banks;
+typedef struct
+{
+  unsigned char* image;
+  unsigned size;
+  unsigned banks;
 } ROMdata;
 
 class ROMfile
 {
-	ROMdata  prgrom;
-	ROMdata  chrrom;
-	ROMdata  trainer;
-	unsigned mapperNumber;
-	int      mirrorType;
-	FILE*    fp;
-	char     fileName[1024];
-	BOOL     flagSaveRAM;
+  ROMdata prgrom;
+  ROMdata chrrom;
+  ROMdata trainer;
+  unsigned mapperNumber;
+  int mirrorType;
+  FILE* fp;
+  char fileName[1024];
+  BOOL flagSaveRAM;
+
 public:
-	ROMfile();
-	BOOL open(const char* file, char* err);
-	void close();
-	void getPrgrom(ROMdata* data);
-	void getChrrom(ROMdata* data);
-	void getTrainer(ROMdata* data);
-	unsigned getMapperNumber();
-	const char* getFileName() { return fileName; }
-	BOOL hasSaveRAM() { return flagSaveRAM; }
-	int getMirrorType();
+  ROMfile();
+  BOOL open(const char* file, char* err);
+  void close();
+  void getPrgrom(ROMdata* data);
+  void getChrrom(ROMdata* data);
+  void getTrainer(ROMdata* data);
+  unsigned getMapperNumber();
+  const char* getFileName() { return fileName; }
+  BOOL hasSaveRAM() { return flagSaveRAM; }
+  int getMirrorType();
 };
 
 #endif
-

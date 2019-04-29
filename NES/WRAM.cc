@@ -1,6 +1,6 @@
 /*
     BeNES - Nintendo Entertaiment System Emulator for BeOS
-    
+
     * (C) 2000 by makoto yamagata
 
     This program is free software; you can redistribute it and/or modify
@@ -17,23 +17,21 @@
    along with this program; if not, write to the Free Software
    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 */
-#include <stdio.h>
+#include "NES/WRAM.h"
 #include <memory.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "NES/WRAM.h"
 
 static void WRAMclear();
 static BOOL WRAMsaveToFile(const char* fileName);
 static BOOL WRAMloadFromFile(const char* fileName);
 static void WRAMcopyTrainer(unsigned char* data);
 
-static WRAMprotocol instance = {
-	WRAMclear,
-	WRAMsaveToFile,
-	WRAMloadFromFile,
-	WRAMcopyTrainer
-};
+static WRAMprotocol instance = { WRAMclear,
+                                 WRAMsaveToFile,
+                                 WRAMloadFromFile,
+                                 WRAMcopyTrainer };
 
 static unsigned char memory[0x2000];
 unsigned char* wram = memory;
@@ -41,52 +39,59 @@ unsigned char* wram = memory;
 unsigned char WRAMread(unsigned address);
 void WRAMwrite(unsigned address, unsigned char data);
 
-void WRAMclear()
+void
+WRAMclear()
 {
-	memset(memory, 0, sizeof(memory));	
+  memset(memory, 0, sizeof(memory));
 }
 
-unsigned char WRAMread(unsigned address)
+unsigned char
+WRAMread(unsigned address)
 {
-	return memory[address&0x1fff];
+  return memory[address & 0x1fff];
 }
 
-void WRAMwrite(unsigned address, unsigned char data)
+void
+WRAMwrite(unsigned address, unsigned char data)
 {
-	memory[address&0x1fff] = data;
+  memory[address & 0x1fff] = data;
 }
 
-BOOL WRAMsaveToFile(const char* fileName)
+BOOL
+WRAMsaveToFile(const char* fileName)
 {
-	FILE* fp = fopen(fileName, "wb");
-	BOOL reply = NO;
-	if (fp) {
-		reply = YES;
-		fwrite(memory, 1, sizeof(memory), fp);
-		fclose(fp);
-	}
+  FILE* fp = fopen(fileName, "wb");
+  BOOL reply = NO;
+  if (fp) {
+    reply = YES;
+    fwrite(memory, 1, sizeof(memory), fp);
+    fclose(fp);
+  }
 
-	return reply;
+  return reply;
 }
 
-BOOL WRAMloadFromFile(const char* fileName)
+BOOL
+WRAMloadFromFile(const char* fileName)
 {
-	FILE* fp = fopen(fileName, "rb");
-	BOOL reply = NO;
-	if (fp) {
-		reply = YES;
-		fread(memory, 1, sizeof(memory), fp);
-		fclose(fp);
-	}
-	return reply;
+  FILE* fp = fopen(fileName, "rb");
+  BOOL reply = NO;
+  if (fp) {
+    reply = YES;
+    fread(memory, 1, sizeof(memory), fp);
+    fclose(fp);
+  }
+  return reply;
 }
 
-void WRAMcopyTrainer(unsigned char* data)
+void
+WRAMcopyTrainer(unsigned char* data)
 {
-	memcpy(&(memory[0x1000]), data, 0x200);
+  memcpy(&(memory[0x1000]), data, 0x200);
 }
 
-WRAMprotocol* WRAM()
+WRAMprotocol*
+WRAM()
 {
-	return &instance;
+  return &instance;
 }

@@ -1,6 +1,6 @@
 /*
     BeNES - Nintendo Entertaiment System Emulator for BeOS
-    
+
     * (C) 2000 by makoto yamagata
 
     This program is free software; you can redistribute it and/or modify
@@ -20,15 +20,14 @@
 #include "NES/APU.h"
 #include "SEALAPU.h"
 
-static APUprotocol instance = {
-	SEALAPUreset,
-	SEALAPUwrite,
-	SEALAPUread,
-	SEALAPUstatusChange,
-	SEALAPUstop
-};
+static APUprotocol instance = { SEALAPUreset,
+                                SEALAPUwrite,
+                                SEALAPUread,
+                                SEALAPUstatusChange,
+                                SEALAPUstop };
 
-APUprotocol* APU() {
-	return &instance;
+APUprotocol*
+APU()
+{
+  return &instance;
 }
-

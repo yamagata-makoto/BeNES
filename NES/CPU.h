@@ -1,6 +1,6 @@
 /*
     BeNES - Nintendo Entertaiment System Emulator for BeOS
-    
+
     * (C) 2000 by makoto yamagata
 
     This program is free software; you can redistribute it and/or modify
@@ -20,27 +20,31 @@
 #ifndef CPU_H_DEFINED
 #define CPU_H_DEFINED
 
-class CPUwriteDelegate {
+class CPUwriteDelegate
+{
 public:
-	virtual void write4_5(unsigned address, unsigned char data) { ; }
+  virtual void write4_5(unsigned address, unsigned char data) { ; }
 };
 
-class CPUreadDelegate {
+class CPUreadDelegate
+{
 public:
-	virtual unsigned char read4_5(unsigned address) { return 0xff; }
+  virtual unsigned char read4_5(unsigned address) { return 0xff; }
 };
 
-class CPUprotocol {
-	static CPUprotocol instance;
-	CPUprotocol() { ; }
+class CPUprotocol
+{
+  static CPUprotocol instance;
+  CPUprotocol() { ; }
+
 public:
-	static CPUprotocol* Instance() { return &(CPUprotocol::instance); }
-	void reset();
-	void run(int cycles);
-	void intNMI();
-	void intIRQ();
-	void setDelegate(CPUwriteDelegate* aDelegate);
-	void setDelegate(CPUreadDelegate* aDelegate);
+  static CPUprotocol* Instance() { return &(CPUprotocol::instance); }
+  void reset();
+  void run(int cycles);
+  void intNMI();
+  void intIRQ();
+  void setDelegate(CPUwriteDelegate* aDelegate);
+  void setDelegate(CPUreadDelegate* aDelegate);
 };
 
 CPUprotocol* CPU();

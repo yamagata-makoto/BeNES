@@ -1,6 +1,6 @@
 /*
     BeNES - Nintendo Entertaiment System Emulator for BeOS
-    
+
     * (C) 2000 by makoto yamagata
 
     This program is free software; you can redistribute it and/or modify
@@ -21,16 +21,18 @@
 #define WRAM_H_DEFINED
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #include "NES/Defs.h"
 
-typedef struct {
-	void (*clear)();
-	BOOL (*saveToFile)(const char* fileName);
-	BOOL (*loadFromFile)(const char* fileName);
-	void (*copyTrainer)(unsigned char* data);
+typedef struct
+{
+  void (*clear)();
+  BOOL (*saveToFile)(const char* fileName);
+  BOOL (*loadFromFile)(const char* fileName);
+  void (*copyTrainer)(unsigned char* data);
 } WRAMprotocol;
 
 WRAMprotocol* WRAM();

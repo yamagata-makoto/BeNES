@@ -1,6 +1,6 @@
 /*
     BeNES - Nintendo Entertaiment System Emulator for BeOS
-    
+
     * (C) 2000 by makoto yamagata
 
     This program is free software; you can redistribute it and/or modify
@@ -29,67 +29,73 @@ static void writeNiz(unsigned address, unsigned char data);
 
 typedef void (*writeFuncPtr)(unsigned address, unsigned char data);
 
-writeFuncPtr writeFuncs[16] = {
-	writeSq0, writeSq0, writeSq0, writeSq0,
-	writeSq1, writeSq1, writeSq1, writeSq1,
-	writeTri, writeTri, writeTri, writeTri,
-	writeNiz, writeNiz, writeNiz, writeNiz
-};
+writeFuncPtr writeFuncs[16] = { writeSq0, writeSq0, writeSq0, writeSq0,
+                                writeSq1, writeSq1, writeSq1, writeSq1,
+                                writeTri, writeTri, writeTri, writeTri,
+                                writeNiz, writeNiz, writeNiz, writeNiz };
 
-void SEALAPUreset()
+void
+SEALAPUreset()
 {
-	if (apu == NULL) {
-		apu = new NesAPU;
-	}
-	apu->reset();
+  if (apu == NULL) {
+    apu = new NesAPU;
+  }
+  apu->reset();
 }
 
-unsigned char SEALAPUread(unsigned address)
+unsigned char
+SEALAPUread(unsigned address)
 {
-	unsigned char ret = 0x00;
-	if (address == 0x4015) ret = apu->read4015(); 
-	return ret;
+  unsigned char ret = 0x00;
+  if (address == 0x4015)
+    ret = apu->read4015();
+  return ret;
 }
 
-void SEALAPUwrite(unsigned address, unsigned char data)
+void
+SEALAPUwrite(unsigned address, unsigned char data)
 {
-	if (address <= 0x400f) {
-		(*writeFuncs[address&0x0f])(address, data);
-	}
-	else if (address == 0x4015) {
-		apu->write4015(data);
-	}
+  if (address <= 0x400f) {
+    (*writeFuncs[address & 0x0f])(address, data);
+  } else if (address == 0x4015) {
+    apu->write4015(data);
+  }
 }
 
-void SEALAPUstatusChange()
+void
+SEALAPUstatusChange()
 {
-	apu->statusChange();
+  apu->statusChange();
 }
 
-void SEALAPUstop()
+void
+SEALAPUstop()
 {
-	apu->stop();
-	apu->reset();
+  apu->stop();
+  apu->reset();
 }
 
 //====================================================================
-void writeSq0(unsigned address, unsigned char data)
+void
+writeSq0(unsigned address, unsigned char data)
 {
-	apu->writeSq0(address-0x4000, data);
+  apu->writeSq0(address - 0x4000, data);
 }
 
-void writeSq1(unsigned address, unsigned char data)
+void
+writeSq1(unsigned address, unsigned char data)
 {
-	apu->writeSq1(address-0x4004, data);
+  apu->writeSq1(address - 0x4004, data);
 }
 
-void writeTri(unsigned address, unsigned char data)
+void
+writeTri(unsigned address, unsigned char data)
 {
-	apu->writeTri(address-0x4008, data);
+  apu->writeTri(address - 0x4008, data);
 }
 
-void writeNiz(unsigned address, unsigned char data)
+void
+writeNiz(unsigned address, unsigned char data)
 {
-	apu->writeNiz(address-0x400c, data);
+  apu->writeNiz(address - 0x400c, data);
 }
-

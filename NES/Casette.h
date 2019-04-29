@@ -1,6 +1,6 @@
 /*
     BeNES - Nintendo Entertaiment System Emulator for BeOS
-    
+
     * (C) 2000 by makoto yamagata
 
     This program is free software; you can redistribute it and/or modify
@@ -20,37 +20,38 @@
 #ifndef Casette_H_DEFINED
 #define Casette_H_DEFINED
 
-#include <stdio.h>
 #include "NES/ROMfile.h"
+#include <stdio.h>
 
-class CasetteProtocol {
+class CasetteProtocol
+{
 public:
-	virtual void init() = 0;
-	virtual void uninit() = 0;
-	virtual int getMirrorType() = 0;
-	virtual void write(unsigned address, unsigned char data) = 0;
-	virtual void setROMdata(ROMfile* romfile) = 0;
-	virtual void hblank(unsigned scanline) = 0;
+  virtual void init() = 0;
+  virtual void uninit() = 0;
+  virtual int getMirrorType() = 0;
+  virtual void write(unsigned address, unsigned char data) = 0;
+  virtual void setROMdata(ROMfile* romfile) = 0;
+  virtual void hblank(unsigned scanline) = 0;
 };
 
-class Casette: public CasetteProtocol
+class Casette : public CasetteProtocol
 {
 protected:
-	ROMdata prgrom;
-	ROMdata chrrom;
-	ROMdata trainer;
-	int     mirrorType;
-	char    saveFile[1024];
+  ROMdata prgrom;
+  ROMdata chrrom;
+  ROMdata trainer;
+  int mirrorType;
+  char saveFile[1024];
+
 public:
-	Casette();	
-	virtual ~Casette();
-	virtual void setROMdata(ROMfile* romfile);
-	virtual void init();
-	virtual int getMirrorType() { return mirrorType; }
-	virtual void write(unsigned address, unsigned char data);
-	virtual void hblank(unsigned scanline) { ; }
-	virtual void uninit();
+  Casette();
+  virtual ~Casette();
+  virtual void setROMdata(ROMfile* romfile);
+  virtual void init();
+  virtual int getMirrorType() { return mirrorType; }
+  virtual void write(unsigned address, unsigned char data);
+  virtual void hblank(unsigned scanline) { ; }
+  virtual void uninit();
 };
 
 #endif
-

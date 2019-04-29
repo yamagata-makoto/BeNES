@@ -1,6 +1,6 @@
 /*
     BeNES - Nintendo Entertaiment System Emulator for BeOS
-    
+
     * (C) 2000 by makoto yamagata
 
     This program is free software; you can redistribute it and/or modify
@@ -23,25 +23,29 @@
 #include "NES/Defs.h"
 
 /* PPU protocol */
-class PPUdelegate {
+class PPUdelegate
+{
 public:
-	virtual void rendering(unsigned address) { ; }
+  virtual void rendering(unsigned address) { ; }
 };
 
-class PPUprotocol {
-	static PPUprotocol instance;
+class PPUprotocol
+{
+  static PPUprotocol instance;
+
 public:
-	PPUprotocol() { ; }
+  PPUprotocol() { ; }
+
 public:
-	static PPUprotocol* Instance() { return &(PPUprotocol::instance); }
-	void reset();
-	void setVBLANK();
-	void resetVBLANK();
-	void drawScanline(unsigned scanline, NESscreen* screen);
-	BOOL isExecuteNMIonVBLANK();
-	void spriteDMA(unsigned char* data);
-	BOOL isScreenVisible();
-	void setDelegate(PPUdelegate* aDelegate);
+  static PPUprotocol* Instance() { return &(PPUprotocol::instance); }
+  void reset();
+  void setVBLANK();
+  void resetVBLANK();
+  void drawScanline(unsigned scanline, NESscreen* screen);
+  BOOL isExecuteNMIonVBLANK();
+  void spriteDMA(unsigned char* data);
+  BOOL isScreenVisible();
+  void setDelegate(PPUdelegate* aDelegate);
 };
 
 PPUprotocol* PPU();

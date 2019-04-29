@@ -1,6 +1,6 @@
 /*
     BeNES - Nintendo Entertaiment System Emulator for BeOS
-    
+
     * (C) 2000 by makoto yamagata
 
     This program is free software; you can redistribute it and/or modify
@@ -20,12 +20,14 @@
 #ifndef RAM_H_DEFINED
 #define RAM_H_DEFINED
 
-class RAMprotocol {
-	static RAMprotocol instance;
-	RAMprotocol() { ; }
+class RAMprotocol
+{
+  static RAMprotocol instance;
+  RAMprotocol() { ; }
+
 public:
-	static RAMprotocol* Instance() { return &(RAMprotocol::instance); }
-	void clear();
+  static RAMprotocol* Instance() { return &(RAMprotocol::instance); }
+  void clear();
 };
 
 RAMprotocol* RAM();

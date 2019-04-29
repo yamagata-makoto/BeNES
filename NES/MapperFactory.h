@@ -1,6 +1,6 @@
 /*
     BeNES - Nintendo Entertaiment System Emulator for BeOS
-    
+
     * (C) 2000 by makoto yamagata
 
     This program is free software; you can redistribute it and/or modify
@@ -25,8 +25,7 @@
 class MapperFactory
 {
 public:
-	static CasetteProtocol* Create(ROMfile* romfile);
+  static CasetteProtocol* Create(ROMfile* romfile);
 };
 
 #endif
-

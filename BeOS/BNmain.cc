@@ -1,6 +1,6 @@
 /*
     BeNES - Nintendo Entertaiment System Emulator for BeOS
-    
+
     * (C) 2000 by makoto yamagata
 
     This program is free software; you can redistribute it and/or modify
@@ -19,10 +19,10 @@
 */
 #include "BeOS/BNApplication.h"
 
-int main()
+int
+main()
 {
-	BNApplication* app = new BNApplication;
-	app->Run();
-	return 0;
+  BNApplication* app = new BNApplication;
+  app->Run();
+  return 0;
 }
-

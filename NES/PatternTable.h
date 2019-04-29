@@ -1,6 +1,6 @@
 /*
     BeNES - Nintendo Entertaiment System Emulator for BeOS
-    
+
     * (C) 2000 by makoto yamagata
 
     This program is free software; you can redistribute it and/or modify
@@ -23,20 +23,23 @@
 #include "NES/Defs.h"
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
-typedef struct {
-	unsigned char data[8];
+typedef struct
+{
+  unsigned char data[8];
 } PatternTile;
 
-typedef struct { 
-	void (*reset)();
-	void (*copy1k)(unsigned address, unsigned char* data);
-	void (*copy2k)(unsigned address, unsigned char* data);
-	void (*copy4k)(unsigned address, unsigned char* data);
-	void (*copy8k)(unsigned address, unsigned char* data);
-	void (*deepCopy8k)(unsigned address, unsigned char* data);
+typedef struct
+{
+  void (*reset)();
+  void (*copy1k)(unsigned address, unsigned char* data);
+  void (*copy2k)(unsigned address, unsigned char* data);
+  void (*copy4k)(unsigned address, unsigned char* data);
+  void (*copy8k)(unsigned address, unsigned char* data);
+  void (*deepCopy8k)(unsigned address, unsigned char* data);
 } PatternTableProtocol;
 
 /* get PatternTable instance. */

@@ -1,6 +1,6 @@
 /*
     BeNES - Nintendo Entertaiment System Emulator for BeOS
-    
+
     * (C) 2000 by makoto yamagata
 
     This program is free software; you can redistribute it and/or modify
@@ -21,12 +21,14 @@
 #define VRAM_H_DEFINED
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
-typedef struct {
-	void (*reset)();
-	void (*setMirrorType)(int mirrorType);
+typedef struct
+{
+  void (*reset)();
+  void (*setMirrorType)(int mirrorType);
 } VRAMprotocol;
 
 /* get VRAM instance.(Singleton pattern) */
@@ -37,4 +39,3 @@ VRAMprotocol* VRAM();
 #endif
 
 #endif
-

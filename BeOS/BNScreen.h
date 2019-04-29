@@ -1,6 +1,6 @@
 /*
     BeNES - Nintendo Entertaiment System Emulator for BeOS
-    
+
     * (C) 2000 by makoto yamagata
 
     This program is free software; you can redistribute it and/or modify
@@ -20,24 +20,26 @@
 #ifndef BNScreen_H_DEFINED
 #define BNScreen_H_DEFINED
 
-#include <interface/Window.h>
+#include "NES/UpdateListener.h"
+#include <game/WindowScreen.h>
 #include <interface/Bitmap.h>
 #include <interface/View.h>
-#include <game/WindowScreen.h>
-#include "NES/UpdateListener.h"
+#include <interface/Window.h>
 
-class BNScreen: public BWindowScreen,
-                public UpdateListener
+class BNScreen
+  : public BWindowScreen
+  , public UpdateListener
 {
-	BView* view;
-	NESscreen screen;
-public:
-	BNScreen();
-	bool QuitRequested();
+  BView* view;
+  NESscreen screen;
 
-	void ScreenConnected(bool connected);
-	void updateScreen();
-	static int32 threadFunc(void* arg);
+public:
+  BNScreen();
+  bool QuitRequested();
+
+  void ScreenConnected(bool connected);
+  void updateScreen();
+  static int32 threadFunc(void* arg);
 };
 
 #endif

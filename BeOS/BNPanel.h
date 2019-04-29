@@ -1,6 +1,6 @@
 /*
     BeNES - Nintendo Entertaiment System Emulator for BeOS
-    
+
     * (C) 2000 by makoto yamagata
 
     This program is free software; you can redistribute it and/or modify
@@ -20,22 +20,23 @@
 #ifndef BNPanel_H_DEFINED
 #define BNPanel_H_DEFINED
 
-#include <interface/Window.h>
 #include <interface/Bitmap.h>
 #include <interface/View.h>
+#include <interface/Window.h>
 #include <storage/FilePanel.h>
 
 /* control name */
 #define BUTTON_EMULATE "emulateButton"
 #define CHECKBOX_FULLSCREEN "fullCheck"
 
-class BNPanel: public BWindow
+class BNPanel : public BWindow
 {
-	BFilePanel* openPanel;
+  BFilePanel* openPanel;
+
 public:
-	BNPanel();
-	bool QuitRequested();
-	void MessageReceived(BMessage* msg);
+  BNPanel();
+  bool QuitRequested();
+  void MessageReceived(BMessage* msg);
 };
 
 #endif

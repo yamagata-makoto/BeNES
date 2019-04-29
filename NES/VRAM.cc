@@ -1,6 +1,6 @@
 /*
     BeNES - Nintendo Entertaiment System Emulator for BeOS
-    
+
     * (C) 2000 by makoto yamagata
 
     This program is free software; you can redistribute it and/or modify
@@ -17,19 +17,16 @@
    along with this program; if not, write to the Free Software
    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 */
+#include "NES/VRAM.h"
+#include "NES/Defs.h"
+#include "NES/PatternTable.h"
 #include <stdio.h>
 #include <string.h>
-#include "NES/Defs.h"
-#include "NES/VRAM.h"
-#include "NES/PatternTable.h"
 
 static void VRAMreset();
 static void VRAMsetMirrorType(int mirrorType);
 
-static VRAMprotocol instance = {
-	VRAMreset,
-	VRAMsetMirrorType
-};
+static VRAMprotocol instance = { VRAMreset, VRAMsetMirrorType };
 
 static unsigned char nameTableMemory[0x1000];
 static unsigned char cachedAttrTableMemory[0x1000];
@@ -43,117 +40,124 @@ static void vram4ScreenMirror();
 unsigned char* nameTable[4];
 unsigned char* cachedAttrTable[4];
 
-void VRAMreset()
+void
+VRAMreset()
 {
-	memset(nameTableMemory, 0, sizeof(nameTableMemory));	
-	memset(cachedAttrTableMemory, 0, sizeof(cachedAttrTableMemory));	
+  memset(nameTableMemory, 0, sizeof(nameTableMemory));
+  memset(cachedAttrTableMemory, 0, sizeof(cachedAttrTableMemory));
 
-	nameTable[0] = (nameTableMemory+0x000);
-	nameTable[1] = (nameTableMemory+0x000);
-	nameTable[2] = (nameTableMemory+0x400);
-	nameTable[3] = (nameTableMemory+0x400);
+  nameTable[0] = (nameTableMemory + 0x000);
+  nameTable[1] = (nameTableMemory + 0x000);
+  nameTable[2] = (nameTableMemory + 0x400);
+  nameTable[3] = (nameTableMemory + 0x400);
 
-	cachedAttrTable[0] = (cachedAttrTableMemory+0x000);
-	cachedAttrTable[1] = (cachedAttrTableMemory+0x000);
-	cachedAttrTable[2] = (cachedAttrTableMemory+0x400);
-	cachedAttrTable[3] = (cachedAttrTableMemory+0x400);
-
+  cachedAttrTable[0] = (cachedAttrTableMemory + 0x000);
+  cachedAttrTable[1] = (cachedAttrTableMemory + 0x000);
+  cachedAttrTable[2] = (cachedAttrTableMemory + 0x400);
+  cachedAttrTable[3] = (cachedAttrTableMemory + 0x400);
 }
 
-void VRAMsetMirrorType(int mirrorType)
+void
+VRAMsetMirrorType(int mirrorType)
 {
-	switch (mirrorType) {
-	case MIRROR_HORIZONTAL: 
-		vramHorizontalMirror();
-		break;
-	case MIRROR_VERTICAL:
-		vramVerticalMirror();
-		break;
-	case MIRROR_1HIGH:
-		vram1HighMirror();
-		break;
-	case MIRROR_1LOW:
-		vram1LowMirror();
-		break;
-	case MIRROR_4SCREEN:
-		vram4ScreenMirror();
-		break;
-	default:
-		break; 
-	}
+  switch (mirrorType) {
+    case MIRROR_HORIZONTAL:
+      vramHorizontalMirror();
+      break;
+    case MIRROR_VERTICAL:
+      vramVerticalMirror();
+      break;
+    case MIRROR_1HIGH:
+      vram1HighMirror();
+      break;
+    case MIRROR_1LOW:
+      vram1LowMirror();
+      break;
+    case MIRROR_4SCREEN:
+      vram4ScreenMirror();
+      break;
+    default:
+      break;
+  }
 }
 
-VRAMprotocol* VRAM()
+VRAMprotocol*
+VRAM()
 {
-	return &instance;
+  return &instance;
 }
 
-void vramHorizontalMirror()
+void
+vramHorizontalMirror()
 {
-	printf("setting horizontal mirror...");
-	nameTable[0] = (nameTableMemory+0x000);
-	nameTable[1] = (nameTableMemory+0x000);
-	nameTable[2] = (nameTableMemory+0x400);
-	nameTable[3] = (nameTableMemory+0x400);
-	cachedAttrTable[0] = (cachedAttrTableMemory+0x000);
-	cachedAttrTable[1] = (cachedAttrTableMemory+0x000);
-	cachedAttrTable[2] = (cachedAttrTableMemory+0x400);
-	cachedAttrTable[3] = (cachedAttrTableMemory+0x400);
-	printf("done.\n");
+  printf("setting horizontal mirror...");
+  nameTable[0] = (nameTableMemory + 0x000);
+  nameTable[1] = (nameTableMemory + 0x000);
+  nameTable[2] = (nameTableMemory + 0x400);
+  nameTable[3] = (nameTableMemory + 0x400);
+  cachedAttrTable[0] = (cachedAttrTableMemory + 0x000);
+  cachedAttrTable[1] = (cachedAttrTableMemory + 0x000);
+  cachedAttrTable[2] = (cachedAttrTableMemory + 0x400);
+  cachedAttrTable[3] = (cachedAttrTableMemory + 0x400);
+  printf("done.\n");
 }
 
-void vramVerticalMirror()
+void
+vramVerticalMirror()
 {
-	printf("setting vertical mirror...");
-	nameTable[0] = (nameTableMemory+0x000);
-	nameTable[1] = (nameTableMemory+0x400);
-	nameTable[2] = (nameTableMemory+0x000);
-	nameTable[3] = (nameTableMemory+0x400);
-	cachedAttrTable[0] = (cachedAttrTableMemory+0x000);
-	cachedAttrTable[1] = (cachedAttrTableMemory+0x400);
-	cachedAttrTable[2] = (cachedAttrTableMemory+0x000);
-	cachedAttrTable[3] = (cachedAttrTableMemory+0x400);
-	printf("done.\n");
+  printf("setting vertical mirror...");
+  nameTable[0] = (nameTableMemory + 0x000);
+  nameTable[1] = (nameTableMemory + 0x400);
+  nameTable[2] = (nameTableMemory + 0x000);
+  nameTable[3] = (nameTableMemory + 0x400);
+  cachedAttrTable[0] = (cachedAttrTableMemory + 0x000);
+  cachedAttrTable[1] = (cachedAttrTableMemory + 0x400);
+  cachedAttrTable[2] = (cachedAttrTableMemory + 0x000);
+  cachedAttrTable[3] = (cachedAttrTableMemory + 0x400);
+  printf("done.\n");
 }
 
-void vram1HighMirror()
+void
+vram1HighMirror()
 {
-	printf("setting 1high mirror...");
-	nameTable[0] = (nameTableMemory+0x400);
-	nameTable[1] = (nameTableMemory+0x400);
-	nameTable[2] = (nameTableMemory+0x400);
-	nameTable[3] = (nameTableMemory+0x400);
-	cachedAttrTable[0] = (cachedAttrTableMemory+0x400);
-	cachedAttrTable[1] = (cachedAttrTableMemory+0x400);
-	cachedAttrTable[2] = (cachedAttrTableMemory+0x400);
-	cachedAttrTable[3] = (cachedAttrTableMemory+0x400);
-	printf("done.\n");
+  printf("setting 1high mirror...");
+  nameTable[0] = (nameTableMemory + 0x400);
+  nameTable[1] = (nameTableMemory + 0x400);
+  nameTable[2] = (nameTableMemory + 0x400);
+  nameTable[3] = (nameTableMemory + 0x400);
+  cachedAttrTable[0] = (cachedAttrTableMemory + 0x400);
+  cachedAttrTable[1] = (cachedAttrTableMemory + 0x400);
+  cachedAttrTable[2] = (cachedAttrTableMemory + 0x400);
+  cachedAttrTable[3] = (cachedAttrTableMemory + 0x400);
+  printf("done.\n");
 }
 
-void vram1LowMirror()
+void
+vram1LowMirror()
 {
-	printf("setting 1low mirror...");
-	nameTable[0] = (nameTableMemory+0x000);
-	nameTable[1] = (nameTableMemory+0x000);
-	nameTable[2] = (nameTableMemory+0x000);
-	nameTable[3] = (nameTableMemory+0x000);
-	cachedAttrTable[0] = (cachedAttrTableMemory+0x000);
-	cachedAttrTable[1] = (cachedAttrTableMemory+0x000);
-	cachedAttrTable[2] = (cachedAttrTableMemory+0x000);
-	cachedAttrTable[3] = (cachedAttrTableMemory+0x000);
-	printf("done.\n");
+  printf("setting 1low mirror...");
+  nameTable[0] = (nameTableMemory + 0x000);
+  nameTable[1] = (nameTableMemory + 0x000);
+  nameTable[2] = (nameTableMemory + 0x000);
+  nameTable[3] = (nameTableMemory + 0x000);
+  cachedAttrTable[0] = (cachedAttrTableMemory + 0x000);
+  cachedAttrTable[1] = (cachedAttrTableMemory + 0x000);
+  cachedAttrTable[2] = (cachedAttrTableMemory + 0x000);
+  cachedAttrTable[3] = (cachedAttrTableMemory + 0x000);
+  printf("done.\n");
 }
 
-void vram4ScreenMirror()
+void
+vram4ScreenMirror()
 {
-	printf("setting 4screen mirror...");
-	nameTable[0] = (nameTableMemory+0x000);
-	nameTable[1] = (nameTableMemory+0x400);
-	nameTable[2] = (nameTableMemory+0x800);
-	nameTable[3] = (nameTableMemory+0xc00);
-	cachedAttrTable[0] = (cachedAttrTableMemory+0x000);
-	cachedAttrTable[1] = (cachedAttrTableMemory+0x400);
-	cachedAttrTable[2] = (cachedAttrTableMemory+0x800);
-	cachedAttrTable[3] = (cachedAttrTableMemory+0xc00);
-	printf("done.\n");
+  printf("setting 4screen mirror...");
+  nameTable[0] = (nameTableMemory + 0x000);
+  nameTable[1] = (nameTableMemory + 0x400);
+  nameTable[2] = (nameTableMemory + 0x800);
+  nameTable[3] = (nameTableMemory + 0xc00);
+  cachedAttrTable[0] = (cachedAttrTableMemory + 0x000);
+  cachedAttrTable[1] = (cachedAttrTableMemory + 0x400);
+  cachedAttrTable[2] = (cachedAttrTableMemory + 0x800);
+  cachedAttrTable[3] = (cachedAttrTableMemory + 0xc00);
+  printf("done.\n");
 }

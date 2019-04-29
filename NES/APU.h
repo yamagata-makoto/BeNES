@@ -1,6 +1,6 @@
 /*
     BeNES - Nintendo Entertaiment System Emulator for BeOS
-    
+
     * (C) 2000 by makoto yamagata
 
     This program is free software; you can redistribute it and/or modify
@@ -23,16 +23,18 @@
 #include "NES/Defs.h"
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 /* PPU protocol */
-typedef struct {
-	void (*reset)();
-	void (*write)(unsigned address, unsigned char data);
-	unsigned char (*read)(unsigned address);
-	void (*statusChange)();
-	void (*stop)();
+typedef struct
+{
+  void (*reset)();
+  void (*write)(unsigned address, unsigned char data);
+  unsigned char (*read)(unsigned address);
+  void (*statusChange)();
+  void (*stop)();
 } APUprotocol;
 
 /* get PPU instance.(Singleton pattern) */

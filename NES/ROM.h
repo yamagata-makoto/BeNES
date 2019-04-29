@@ -1,6 +1,6 @@
 /*
     BeNES - Nintendo Entertaiment System Emulator for BeOS
-    
+
     * (C) 2000 by makoto yamagata
 
     This program is free software; you can redistribute it and/or modify
@@ -20,16 +20,18 @@
 #ifndef ROM_H_DEFINED
 #define ROM_H_DEFINED
 
-class ROMprotocol {
-	static ROMprotocol instance;
-	ROMprotocol() { ; }
+class ROMprotocol
+{
+  static ROMprotocol instance;
+  ROMprotocol() { ; }
+
 public:
-	static ROMprotocol* Instance() { return &(ROMprotocol::instance); }
-	void reset();
-	void copy8k(unsigned address, unsigned char* data);
-	void copy16k(unsigned address, unsigned char* data);
-	void copy32k(unsigned address, unsigned char* data);
-	void swap8k(unsigned addrA, unsigned addrB);
+  static ROMprotocol* Instance() { return &(ROMprotocol::instance); }
+  void reset();
+  void copy8k(unsigned address, unsigned char* data);
+  void copy16k(unsigned address, unsigned char* data);
+  void copy32k(unsigned address, unsigned char* data);
+  void swap8k(unsigned addrA, unsigned addrB);
 };
 
 /* get ROM instance. */

@@ -1,6 +1,6 @@
 /*
     BeNES - Nintendo Entertaiment System Emulator for BeOS
-    
+
     * (C) 2000 by makoto yamagata
 
     This program is free software; you can redistribute it and/or modify
@@ -17,17 +17,17 @@
    along with this program; if not, write to the Free Software
    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 */
-#include <stdio.h>
-#include <time.h>
 #include "NES/NES.h"
-#include "NES/ROM.h"
-#include "NES/CPU.h"
-#include "NES/RAM.h"
-#include "NES/PPU.h"
 #include "NES/APU.h"
+#include "NES/CPU.h"
+#include "NES/Joypad.h"
+#include "NES/PPU.h"
+#include "NES/RAM.h"
+#include "NES/ROM.h"
 #include "NES/VRAM.h"
 #include "NES/WRAM.h"
-#include "NES/Joypad.h"
+#include <stdio.h>
+#include <time.h>
 
 #if defined(__BEOS__) || defined(__HAIKU__)
 #include <OS.h>
@@ -36,110 +36,117 @@
 #define snooze usleep
 #endif
 
-#define SCREEN_W     (256)
-#define SCREEN_H     (240)
+#define SCREEN_W (256)
+#define SCREEN_H (240)
 #define SCREEN_DEPTH (8)
 
 NES NES::instance;
 
-static NESscreen*       screen = NULL;
+static NESscreen* screen = NULL;
 static CasetteProtocol* mapper = NULL;
-static UpdateListener*  updateListener = NULL;
+static UpdateListener* updateListener = NULL;
 
 inline void executeCPU1scanline(unsigned scanline);
 
-void NESwrite(unsigned address, unsigned char data)
+void
+NESwrite(unsigned address, unsigned char data)
 {
-	mapper->write(address, data);
+  mapper->write(address, data);
 }
 
-void NES::insertCasette(CasetteProtocol* obj)
+void
+NES::insertCasette(CasetteProtocol* obj)
 {
-	mapper = obj;
+  mapper = obj;
 }
 
-void NES::connect(UpdateListener* listener)
+void
+NES::connect(UpdateListener* listener)
 {
-	updateListener = listener;
+  updateListener = listener;
 }
 
-void NES::reset()
+void
+NES::reset()
 {
-	JoypadA()->reset();
-	
-	/* clear memory */
-	RAM()->clear();
-	
-	/* reset H/W */
-	PPU()->reset();
-	ROM()->reset();
+  JoypadA()->reset();
 
-	/* set vram mirror */
-	VRAM()->setMirrorType(mapper->getMirrorType());
-	
-	/* mapper init */
-	CPU()->setDelegate((CPUwriteDelegate*)NULL);
-	CPU()->setDelegate((CPUreadDelegate*)NULL);
-	PPU()->setDelegate(NULL);
-	mapper->init();
+  /* clear memory */
+  RAM()->clear();
 
-	/* reset CPU */
-	CPU()->reset();
-	
+  /* reset H/W */
+  PPU()->reset();
+  ROM()->reset();
+
+  /* set vram mirror */
+  VRAM()->setMirrorType(mapper->getMirrorType());
+
+  /* mapper init */
+  CPU()->setDelegate((CPUwriteDelegate*)NULL);
+  CPU()->setDelegate((CPUreadDelegate*)NULL);
+  PPU()->setDelegate(NULL);
+  mapper->init();
+
+  /* reset CPU */
+  CPU()->reset();
 }
 
-void NES::run()
+void
+NES::run()
 {
-	clock_t start, wait;
-	running = YES;
+  clock_t start, wait;
+  running = YES;
 
-	this->reset();
+  this->reset();
 
-	scanline = 0;
-	start = clock();
-	while (running == YES) {
-		executeCPU1scanline(scanline);
-		PPU()->drawScanline(scanline, screen);
-		if (scanline++ == 241) {
-			updateListener->updateScreen();
-			PPU()->setVBLANK();
-			CPU()->run(8);
-			if (PPU()->isExecuteNMIonVBLANK() == YES) {
-				CPU()->intNMI();
-			}
-			for (; scanline<=261; scanline++) {
-				executeCPU1scanline(scanline);
-			}
-			PPU()->resetVBLANK();
-			scanline = 0;
-			CPU()->run(80);
-			snooze(20000L - (clock() - start));
-			start = clock();
-		}
-	}
-	mapper->uninit();
-	APU()->stop();
+  scanline = 0;
+  start = clock();
+  while (running == YES) {
+    executeCPU1scanline(scanline);
+    PPU()->drawScanline(scanline, screen);
+    if (scanline++ == 241) {
+      updateListener->updateScreen();
+      PPU()->setVBLANK();
+      CPU()->run(8);
+      if (PPU()->isExecuteNMIonVBLANK() == YES) {
+        CPU()->intNMI();
+      }
+      for (; scanline <= 261; scanline++) {
+        executeCPU1scanline(scanline);
+      }
+      PPU()->resetVBLANK();
+      scanline = 0;
+      CPU()->run(80);
+      snooze(20000L - (clock() - start));
+      start = clock();
+    }
+  }
+  mapper->uninit();
+  APU()->stop();
 }
 
-void NES::setScreen(NESscreen* obj)
+void
+NES::setScreen(NESscreen* obj)
 {
-	screen = obj;
+  screen = obj;
 }
 
-void NES::stop()
+void
+NES::stop()
 {
-	running = NO;
+  running = NO;
 }
 
-
-NES& NES::Instance()
+NES&
+NES::Instance()
 {
-	return instance;
+  return instance;
 }
 
 /*------------------------------------------- private functions ---*/
-void executeCPU1scanline(unsigned scanline)
+void
+executeCPU1scanline(unsigned scanline)
 {
-	CPU()->run(113);
-	mapper->hblank(scanline);
+  CPU()->run(113);
+  mapper->hblank(scanline);
 }

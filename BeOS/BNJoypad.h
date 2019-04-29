@@ -1,6 +1,6 @@
 /*
     BeNES - Nintendo Entertaiment System Emulator for BeOS
-    
+
     * (C) 2000 by makoto yamagata
 
     This program is free software; you can redistribute it and/or modify
@@ -20,52 +20,56 @@
 #ifndef BNJOYPAD_H_DEFINED
 #define BNJOYPAD_H_DEFINED
 
+#include "NES/Joypad.h"
 #include <device/Joystick.h>
 #include <kernel/OS.h>
-#include "NES/Joypad.h"
 
-class BNGrip {
+class BNGrip
+{
 public:
-	BNGrip() { ; }
-	virtual ~BNGrip() { ; }
-	virtual void get(JoypadProtocol* joy) = 0;
+  BNGrip() { ; }
+  virtual ~BNGrip() { ; }
+  virtual void get(JoypadProtocol* joy) = 0;
 };
 
-class BNKeyboardGrip: public BNGrip {
+class BNKeyboardGrip : public BNGrip
+{
 public:
-	void get(JoypadProtocol* joy);
+  void get(JoypadProtocol* joy);
 };
 
-class BNJoystickGrip: public BNGrip {
-	BJoystick bjoy;
-	bool isGamePadPro;
+class BNJoystickGrip : public BNGrip
+{
+  BJoystick bjoy;
+  bool isGamePadPro;
+
 public:
-	BNJoystickGrip();
-	void get(JoypadProtocol* joy);
-	void setGamePadProGrip(bool flag) { isGamePadPro = flag; }
+  BNJoystickGrip();
+  void get(JoypadProtocol* joy);
+  void setGamePadProGrip(bool flag) { isGamePadPro = flag; }
 };
 
-class BNJoypad {
-static BNJoypad instance;
+class BNJoypad
+{
+  static BNJoypad instance;
 
-	thread_id id;
-	bool running;
-	BNKeyboardGrip* keyboard;
-	BNJoystickGrip* joystick;
-	BNGrip* grip;
-	
-	
-	BNJoypad();
-	~BNJoypad();
+  thread_id id;
+  bool running;
+  BNKeyboardGrip* keyboard;
+  BNJoystickGrip* joystick;
+  BNGrip* grip;
 
-	static int32 Polling(void* arg);
+  BNJoypad();
+  ~BNJoypad();
+
+  static int32 Polling(void* arg);
+
 public:
-	static BNJoypad* Instance() { return &instance; }
-	
-	void setInputDeviceType(int type);
-	void startPolling();
-	void endPolling();
-	
+  static BNJoypad* Instance() { return &instance; }
+
+  void setInputDeviceType(int type);
+  void startPolling();
+  void endPolling();
 };
 
 #endif
