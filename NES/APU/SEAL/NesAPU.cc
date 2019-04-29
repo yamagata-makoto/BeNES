@@ -40,48 +40,58 @@ GET_FREQ(unsigned char* R)
 {
   return (((R[3] & 0x07) << 8) | R[2]);
 }
+
 inline unsigned char
 GET_WAVETYPE(unsigned char* R)
 {
   return ((R[0] >> 6) & 0x03);
 }
+
 inline unsigned char
 GET_SNDLENGTH(unsigned char* R)
 {
   return (SoundLengthTbl[(R[3] >> 3) & 0x1f]);
 }
+
 inline int
 GET_SQxLENGTH(unsigned char* R)
 {
   return (R[0] & 0x20) ? -1 : GET_SNDLENGTH(R);
 }
+
 inline int
 GET_VOLUME(unsigned char* R)
 {
   return (R[0] & 0x10) ? ((R[0] & 0x0f) * VOL_FADE) : VOL_MAX;
 }
+
 inline int
 GET_FADEVALUE(unsigned char* R)
 {
   return (R[0] & 0x10) ? -1 : ((R[0] & 0x0f) + 1);
 }
+
 inline int
 GET_SWEEPVALUE(unsigned char* R)
 {
   return (R[1] & 0x80) ? (((R[1] & 0x70) >> 4) + 1) : -1;
 }
+
 inline unsigned char
 GET_SWEEPSPEED(unsigned char* R)
 {
   return (R[1] & 0x07);
 }
+
 inline unsigned char
 GET_SWEEPDIRECTION(unsigned char* R)
 {
   return ((R[1] >> 3) & 0x01);
 }
-static int NoiseFreqTable[16] = { 1,  2,  4,   8,   16,  24,  32,  40,
-                                  64, 96, 128, 192, 256, 384, 512, 512 };
+
+static int NoiseFreqTable[16] = {
+  1, 2, 4, 8, 16, 24, 32, 40, 64, 96, 128, 192, 256, 384, 512, 512
+};
 
 #define NOISE_FREQ ((NoiseFreqTable[mNizRegs[2] & 0x0f]))
 #define NOISE_VOL (GET_VOLUME(mNizRegs))
@@ -245,7 +255,7 @@ NesAPU::statusChange()
         m4015 &= ~(0x01 << 2);
         mSound.stop(2);
       }
-#if 0
+#ifdef APU_UPDATE_SOUND_VOLUME 
 			// UPDATE SOUND VOLUME
 			if ((mFadeCounter[i]>0) && (--mFadeCounter[i]==0)) {
 				mFadeCounter[i] = mFadeValue[i];
